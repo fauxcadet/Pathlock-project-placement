@@ -53,6 +53,11 @@ public class AuthController : ControllerBase
             return Unauthorized("Invalid credentials");
 
         var token = _tokenService.CreateToken(user);
-        return Ok(new AuthResponseDto(token, user.Username, user.Email));
+return Ok(new AuthResponseDto
+{
+    Token = token,
+    Username = user.Username,
+    Email = user.Email
+});
     }
 }
