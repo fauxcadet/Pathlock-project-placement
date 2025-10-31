@@ -65,39 +65,12 @@ MniProjectManager/
 │   └── vite.config.ts
 └── README.md
 
-⚙️ Setup Instructions
 
-1️⃣ Clone or extract the project
-cd MniProjectManager
 
-2️⃣ Setup Backend (ASP.NET Core)
 
-cd backend
-dotnet restore        # Restore dependencies
-dotnet build          # Build the project
-dotnet run            # Start the backend server
-
-📍 The backend will run at:
-
-👉 http://localhost:5285
-
-3️⃣ Setup Frontend (React + Vite)
-Open a new terminal tab:
-cd frontend
-npm install           # Install dependencies
-npm run dev           # Start development server
-
-📍 The frontend will run at:
-👉 http://localhost:5173
-
-4️⃣ Register & Login
-Go to http://localhost:5173/register and create a new user
-Then log in — you’ll receive a JWT token stored in localStorage
-Start adding Projects → click a Project → add Tasks
 
 5️⃣ Environment Notes
-Frontend talks to backend via:
-http://localhost:5285/api
+
 JWT token is automatically sent in API headers
 Database: Local SQLite file (app.db) created automatically in backend folder
 
@@ -150,7 +123,7 @@ Pages are routed using react-router-dom.
 Tailwind provides the styling, animations, and layout.
 
 🧑‍💻 Developed By
-Sourav [Your Full Name Here]
+Sourav 
 Mini Project — Home Assignment 2 (Pathlock Pvt. Ltd.)
 
 ✅ Demo Flow Summary
