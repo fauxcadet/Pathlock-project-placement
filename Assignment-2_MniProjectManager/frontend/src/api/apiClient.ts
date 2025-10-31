@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5056";
-// ✅ Configure axios instance
+// ✅ Use relative base URL because Vercel will proxy /api/* to Render backend
+const API_BASE = "/api";
+
 export const api = axios.create({
   baseURL: API_BASE,
   headers: {
@@ -11,17 +12,13 @@ export const api = axios.create({
 
 // ✅ Login
 export const apiLogin = async (usernameOrEmail: string, password: string) => {
-  const res = await api.post("/api/auth/login", { usernameOrEmail, password });
+  const res = await api.post("/auth/login", { usernameOrEmail, password });
   return res.data; // { token, username, email }
 };
 
 // ✅ Register
-export const apiRegister = async (
-  username: string,
-  email: string,
-  password: string
-) => {
-  const res = await api.post("/api/auth/register", { username, email, password });
+export const apiRegister = async (username: string, email: string, password: string) => {
+  const res = await api.post("/auth/register", { username, email, password });
   return res.data;
 };
 
@@ -34,11 +31,7 @@ export const getProjects = async (token: string) => {
 };
 
 // ✅ Create new project
-export const createProject = async (
-  token: string,
-  title: string,
-  description: string = ""
-) => {
+export const createProject = async (token: string, title: string, description: string = "") => {
   const res = await api.post(
     "/projects",
     { title, description },
@@ -56,12 +49,11 @@ export const deleteProject = async (token: string, projectId: number) => {
 
 // ✅ Get all tasks for a specific project
 export const getTasks = async (token: string, projectId: number) => {
-  const res = await api.get(`/projects/${projectId}/tasks`, {   // ✅ correct endpoint
+  const res = await api.get(`/projects/${projectId}/tasks`, {
     headers: { Authorization: `Bearer ${token}` },
   });
   return res.data;
 };
-
 
 // ✅ Add a task to a project
 export const addTask = async (
@@ -94,6 +86,7 @@ export const deleteTask = async (token: string, taskId: number) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
 // ✅ Update Project
 export const updateProject = async (
   token: string,
@@ -123,4 +116,3 @@ export const updateTask = async (
   );
   return res.data;
 };
-
