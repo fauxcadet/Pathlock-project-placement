@@ -1,14 +1,10 @@
 ## 🧩 Mini Project Manager — Full-Stack Application
 
-🚀 Live Deployments
+🌐 Live Links
 
-🔹 Frontend (Vercel)
+Frontend (Vercel): https://pathlock-project-placement-kjwb.vercel.app
 
-👉 https://pathlock-project-placement.vercel.app
-
-🔹 Backend (Render)
-
-👉 https://pathlock-project-taskmanager.onrender.com
+Backend (Render): https://pathlock-project-placement.onrender.com
 
 
 This is a full-stack mini project management system built using:
