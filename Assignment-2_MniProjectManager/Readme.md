@@ -32,12 +32,18 @@ Beautiful Tailwind styling
 Smooth transitions and modals for editing
 
 🏗️ Project Structure
+
 MniProjectManager/
 │
+
 ├── backend/
+
 │   ├── Controllers/
+
 │   │   ├── AuthController.cs
+
 │   │   ├── ProjectsController.cs
+
 │   │   └── TasksController.cs
 │   ├── Data/
 │   │   └── AppDbContext.cs
