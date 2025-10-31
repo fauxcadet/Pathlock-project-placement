@@ -41,7 +41,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// ✅ CORS setup — must explicitly list all frontend origins
+// 🚀 MODIFICATION HERE: Added Vercel Wildcard Subdomain for CORS
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
@@ -49,8 +49,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
             "http://localhost:5173",
             "https://pathlock-project-placement.vercel.app",
-            "https://pathlock-project-placement-kjwb.vercel.app",
-            "https://pathlock-project-placement-kjwb-59pl0tnk5.vercel.app" // dynamic one from your console
+            "https://*.pathlock-project-placement.vercel.app" // 🎯 FIX: Wildcard Subdomain added for dynamic Vercel deployments
         )
         .AllowAnyHeader()
         .AllowAnyMethod()
@@ -100,5 +99,3 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ Start the app
 app.Run();
-
-
