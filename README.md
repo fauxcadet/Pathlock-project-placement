@@ -38,8 +38,10 @@ Pathlock-project-placement/
 ## A full-stack Project & Task Management App with secure authentication, built using React + TypeScript (Vite) for the frontend and ASP.NET Core (C#) for the backend.
 🌐 Live Links
 
-Frontend (Vercel): [https://pathlock-project-placement-kjwb.vercel.app/login](https://pathlock-project-placement-kjwb.vercel.app/login)
+Frontend (Vercel): [https://pathlock-project-placement-kjwb.vercel.app/]
+(https://pathlock-project-placement-kjwb.vercel.app/login)
 Backend (Render): [https://pathlock-project-placement.onrender.com](https://pathlock-project-placement.onrender.com)
+
 ## ⚙️ Tech Stack
 
 Frontend: React, TypeScript, Vite, Axios, TailwindCSS
