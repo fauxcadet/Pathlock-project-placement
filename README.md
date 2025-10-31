@@ -33,3 +33,19 @@ Pathlock-project-placement/
 
 
 
+# 🧩 Pathlock Project - Assignment 2 - Mini Project Manager
+
+This repository contains both **frontend** and **backend** for the Pathlock coding assignment.
+
+---
+
+## 🚀 Live Deployments
+
+### 🔹 Frontend (Vercel)
+👉 [https://pathlock-project-placement-kjwb.vercel.app/](https://pathlock-project-placement-kjwb.vercel.app/)
+
+### 🔹 Backend (Render)
+👉 [https://pathlock-project-placement.onrender.com](https://pathlock-project-placement.onrender.com/)
+
+---
+
