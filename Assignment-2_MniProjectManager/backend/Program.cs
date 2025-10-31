@@ -64,7 +64,7 @@ builder.Services.AddCors(options =>
                 }
 
                 // 2. Allow all subdomains of the Vercel project domain (wildcard logic)
-                var vercelBase = ".pathlock-project-placement.vercel.app";
+                var vercelBase = ".pathlock-project-placement-kjbw.vercel.app";
                 
                 if (origin.EndsWith(vercelBase, StringComparison.OrdinalIgnoreCase))
                 {
@@ -133,3 +133,4 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ Start the app
 app.Run();
+
