@@ -44,18 +44,21 @@ builder.Services.AddAuthentication(options =>
 // ✅ CORS for both local + deployed frontends
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowFrontend", p =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        p.WithOrigins(
-            "http://localhost:5173",
-            "https://pathlock-project-placement.vercel.app",   // Assignment 1 frontend
-            "https://pathlock-miniprojectmanager.vercel.app",
-         "https://pathlock-project-placement-git-bc15a5-souravs-projects-fe674b7a.vercel.app"    // Assignment 2 frontend
-        )
-        .AllowAnyHeader()
-        .AllowAnyMethod();
+        policy
+            .SetIsOriginAllowed(origin =>
+                origin.StartsWith("http://localhost:5173") ||
+                origin.StartsWith("https://pathlock-project-placement") ||
+                origin.StartsWith("https://pathlock-miniprojectmanager")
+                origin.StartsWith("https://pathlock-project-placement.onrender.com/")
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
