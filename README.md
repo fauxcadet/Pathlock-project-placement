@@ -39,6 +39,7 @@ Pathlock-project-placement/
 🌐 Live Links
 
 Frontend (Vercel): [https://pathlock-project-placement-kjwb.vercel.app/](https://pathlock-project-placement-kjwb.vercel.app/)
+
 Backend (Render): [https://pathlock-project-placement.onrender.com](https://pathlock-project-placement.onrender.com)
 
 ## ⚙️ Tech Stack
