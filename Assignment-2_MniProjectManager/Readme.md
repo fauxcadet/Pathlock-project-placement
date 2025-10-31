@@ -1,5 +1,14 @@
 ## 🧩 Mini Project Manager — Full-Stack Application
 
+🚀 Live Deployments
+
+🔹 Frontend (Vercel)
+
+👉 https://pathlock-project-placement.vercel.app
+
+🔹 Backend (Render)
+
+👉 https://pathlock-project-taskmanager.onrender.com
 This is a full-stack mini project management system built using:
 Backend: ASP.NET Core 8 (C#) + Entity Framework + SQLite
 Frontend: React + TypeScript + TailwindCSS + Axios
