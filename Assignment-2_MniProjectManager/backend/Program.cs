@@ -46,16 +46,18 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-       policy
-    .SetIsOriginAllowed(origin => 
-        origin.StartsWith("http://localhost:") ||
-        origin.Contains("vercel.app"))
-    .AllowAnyHeader()
-    .AllowAnyMethod()
-    .AllowCredentials();
-
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "https://pathlock-project-placement.vercel.app",
+            "https://pathlock-project-placement-kjwb.vercel.app",
+            "https://pathlock-project-placement-kjwb-59pl0tnk5.vercel.app" // dynamic one from your console
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod()
+        .AllowCredentials();
     });
 });
+
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -98,4 +100,5 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ Start the app
 app.Run();
+
 
