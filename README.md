@@ -33,19 +33,24 @@ Pathlock-project-placement/
 
 
 
-# 🧩 Pathlock Project - Assignment 2 - Mini Project Manager
+# 🚀 Pathlock Project Placement Manager
 
-This repository contains both **frontend** and **backend** for the Pathlock coding assignment.
+## A full-stack Project & Task Management App with secure authentication, built using React + TypeScript (Vite) for the frontend and ASP.NET Core (C#) for the backend.
+🌐 Live Links
 
----
+Frontend (Vercel): [https://pathlock-project-placement-kjwb.vercel.app](https://pathlock-project-placement-kjwb.vercel.app/)
+Backend (Render): [https://pathlock-project-placement.onrender.com](https://pathlock-project-placement.onrender.com)
+## ⚙️ Tech Stack
 
-## 🚀 Live Deployments
+Frontend: React, TypeScript, Vite, Axios, TailwindCSS
+Backend: ASP.NET Core Web API, Entity Framework Core, SQLite
+Auth: JWT + BCrypt Password Hashing
+Deploy: Vercel (frontend) + Render (backend)
 
-### 🔹 Frontend (Vercel)
-👉 [https://pathlock-project-placement-kjwb.vercel.app/](https://pathlock-project-placement-kjwb.vercel.app/)
-
-### 🔹 Backend (Render)
-👉 [https://pathlock-project-placement.onrender.com](https://pathlock-project-placement.onrender.com/)
-
----
+## 🧩 Features
+🔐 User Register/Login (JWT Auth)
+📁 Create, Update, Delete Projects
+✅ Manage Tasks (Add, Toggle, Delete)
+🌍 CORS Configured for Vercel ↔ Render
+💾 SQLite Database with EF Core
 
