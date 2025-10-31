@@ -41,24 +41,46 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// 🚀 MODIFICATION HERE: Added Vercel Wildcard Subdomain for CORS
-// 🚀 MODIFICATION: Streamlined CORS policy for Vercel wildcard
+// 🚀 FINAL MODIFICATION: Implement custom SetIsOriginAllowed logic for robust Vercel CORS.
+// This is the most reliable way to handle dynamic Vercel subdomains (e.g., *-kjwb.vercel.app).
+
+var allowedOrigins = new List<string>
+{
+    "http://localhost:5173",
+    "https://pathlock-project-placement.vercel.app",
+};
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.WithOrigins(
-            "http://localhost:5173",
-            "https://pathlock-project-placement.vercel.app",
-            "https://pathlock-project-placement-kjwb.vercel.app/register"
-        )
-        // Explicitly set flag to allow wildcards
-        .SetIsOriginAllowedToAllowWildcardSubdomains() 
-        .AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowCredentials();
+        policy
+            .SetIsOriginAllowed(origin =>
+            {
+                // 1. Allow origins from the explicit list (localhost, primary domain)
+                if (allowedOrigins.Contains(origin, StringComparer.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+
+                // 2. Allow all subdomains of the Vercel project domain (wildcard logic)
+                var vercelBase = ".pathlock-project-placement.vercel.app";
+                
+                if (origin.EndsWith(vercelBase, StringComparison.OrdinalIgnoreCase))
+                {
+                    // Ensure the scheme is HTTPS
+                    return origin.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+                }
+
+                return false;
+            })
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
     });
 });
+// -------------------------------------------------------------
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -100,6 +122,3 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ Start the app
 app.Run();
-
-
-
