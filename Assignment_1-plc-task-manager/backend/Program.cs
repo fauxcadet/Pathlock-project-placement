@@ -4,16 +4,18 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Enable CORS for frontend (Vite on port 5173)
+// ✅ Enable CORS for both local and deployed frontends
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173")
+            .WithOrigins(
+                "http://localhost:5173",                                // local dev
+                "https://pathlock-project-placement.vercel.app"         // deployed frontend
+            )
             .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+            .AllowAnyMethod();
     });
 });
 
@@ -66,6 +68,10 @@ app.MapDelete("/api/tasks/{id}", (int id) =>
     tasks.Remove(task);
     return Results.Ok();
 });
+
+// ✅ Ensure the backend listens on the Render port
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
 
 app.Run();
 

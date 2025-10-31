@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/sourav/Desktop/pathlock/plc-task-manager/backend/backend.csproj",
+      "projectUniqueName": "/Users/sourav/Downloads/Pathlock-Projects-main/Assignment_1-plc-task-manager/backend/backend.csproj",
       "projectName": "backend",
-      "projectPath": "/Users/sourav/Desktop/pathlock/plc-task-manager/backend/backend.csproj",
+      "projectPath": "/Users/sourav/Downloads/Pathlock-Projects-main/Assignment_1-plc-task-manager/backend/backend.csproj",
       "packagesPath": "/Users/sourav/.nuget/packages/",
-      "outputPath": "/Users/sourav/Desktop/pathlock/plc-task-manager/backend/obj/",
+      "outputPath": "/Users/sourav/Downloads/Pathlock-Projects-main/Assignment_1-plc-task-manager/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/sourav/.nuget/NuGet/NuGet.Config"
