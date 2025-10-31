@@ -50,7 +50,7 @@ builder.Services.AddCors(options =>
         policy.WithOrigins(
             "http://localhost:5173",
             "https://pathlock-project-placement.vercel.app",
-            "https://pathlock-project-placement-kjwb.vercel.app"
+            "https://pathlock-project-placement-kjwb.vercel.app/register"
         )
         // Explicitly set flag to allow wildcards
         .SetIsOriginAllowedToAllowWildcardSubdomains() 
@@ -100,5 +100,6 @@ app.Urls.Add($"http://*:{port}");
 
 // ✅ Start the app
 app.Run();
+
 
 
