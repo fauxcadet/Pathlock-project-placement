@@ -1,4 +1,22 @@
-namespace Backend.DTOs;
-public record RegisterDto(string Username, string Email, string Password);
-public record LoginDto(string UsernameOrEmail, string Password);
-public record AuthResponseDto(string Token, string Username, string Email);
+namespace Backend.DTOs
+{
+    public class RegisterDto
+    {
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+
+    public class LoginDto
+    {
+        public string UsernameOrEmail { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
+    }
+
+    public class AuthResponseDto
+    {
+        public string Token { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+    }
+}
