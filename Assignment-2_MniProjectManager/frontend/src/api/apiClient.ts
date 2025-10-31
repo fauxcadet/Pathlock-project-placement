@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:5285/api"; // ✅ your .NET backend
-
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5056";
 // ✅ Configure axios instance
 export const api = axios.create({
   baseURL: API_BASE,
