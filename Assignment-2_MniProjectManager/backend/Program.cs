@@ -51,13 +51,13 @@ builder.Services.AddCors(options =>
                 origin.StartsWith("http://localhost:5173") ||
                 origin.StartsWith("https://pathlock-project-placement") ||
                 origin.StartsWith("https://pathlock-miniprojectmanager")
-                origin.StartsWith("https://pathlock-project-placement.onrender.com/")
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
             .AllowCredentials();
     });
 });
+
 
 
 builder.Services.AddControllers();
