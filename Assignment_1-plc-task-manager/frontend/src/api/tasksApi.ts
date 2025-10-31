@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:5056"; // .NET backend base URL
+// ✅ Use nullish coalescing (??) — safer than ||
+// ✅ VITE_API_BASE_URL will be read from .env file during build
+const API_BASE = import.meta.env.VITE_API_BASE_URL ?? "http://localhost:5056";
 
 const api = axios.create({
   baseURL: API_BASE,
