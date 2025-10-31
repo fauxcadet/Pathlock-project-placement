@@ -50,7 +50,9 @@ builder.Services.AddCors(options =>
             .SetIsOriginAllowed(origin =>
                 origin.StartsWith("http://localhost:5173") ||
                 origin.StartsWith("https://pathlock-project-placement") ||
-                origin.StartsWith("https://pathlock-miniprojectmanager")
+                origin.StartsWith("https://pathlock-miniprojectmanager") ||
+                origin.StartsWith("https://pathlock-project-placement-kjwb.vercel.app") 
+
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
