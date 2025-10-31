@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Optional: define your own palette */
+  --color-dark: #0f172a;
+  --color-light: #f8fafc;
+}
+
+/* Use Tailwind layers normally */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Apply global styles */
+body {
+  @apply bg-[--color-dark] text-[--color-light] min-h-screen transition-all duration-300 ease-in-out;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  @apply text-indigo-400 hover:text-indigo-300 font-medium transition-colors;
+}
+
+button {
+  @apply rounded-lg border border-transparent px-4 py-2 font-semibold text-sm bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all;
+}

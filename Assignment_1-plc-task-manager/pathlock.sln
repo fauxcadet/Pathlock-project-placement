@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "plc-task-manager", "plc-task-manager", "{1A6AACA0-BAE7-E4C8-C27D-A17F3A848E62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "plc-task-manager\backend\backend.csproj", "{CD2950A4-1836-30E2-B328-EAF5D5652E97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD2950A4-1836-30E2-B328-EAF5D5652E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD2950A4-1836-30E2-B328-EAF5D5652E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD2950A4-1836-30E2-B328-EAF5D5652E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD2950A4-1836-30E2-B328-EAF5D5652E97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CD2950A4-1836-30E2-B328-EAF5D5652E97} = {1A6AACA0-BAE7-E4C8-C27D-A17F3A848E62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {738A71A9-755F-4583-B815-8F3757DCE68B}
+	EndGlobalSection
+EndGlobal
