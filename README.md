@@ -22,15 +22,15 @@ This repository contains both **frontend** and **backend** for the Pathlock codi
 ---
 
 ## ⚙️ Folder Structure
+
 Pathlock-project-placement/
 │
-├── Assignment_1-plc-task-manager/
+├── **Assignment_1-plc-task-manager/**
 │ ├── frontend/ # React + Vite app
 │ └── backend/ # .NET Minimal API
 │
-├── Assignment_2-MiniProjectManager/ # Second assignment (if included)
+├── **Assignment_2-MiniProjectManager/** # Second assignment (if included)
 └── README.md
-
 
 
 # 🚀 Pathlock Project Placement Manager
