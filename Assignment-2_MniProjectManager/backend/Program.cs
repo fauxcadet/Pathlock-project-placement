@@ -49,7 +49,8 @@ builder.Services.AddCors(options =>
         p.WithOrigins(
             "http://localhost:5173",
             "https://pathlock-project-placement.vercel.app",   // Assignment 1 frontend
-            "https://pathlock-miniprojectmanager.vercel.app"   // Assignment 2 frontend
+            "https://pathlock-miniprojectmanager.vercel.app",
+         "https://pathlock-project-placement-git-bc15a5-souravs-projects-fe674b7a.vercel.app"    // Assignment 2 frontend
         )
         .AllowAnyHeader()
         .AllowAnyMethod();
