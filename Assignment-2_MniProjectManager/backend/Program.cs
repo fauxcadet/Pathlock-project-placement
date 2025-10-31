@@ -27,7 +27,7 @@ builder.Services.AddAuthentication(options =>
 })
 .AddJwtBearer(options =>
 {
-    options.RequireHttpsMetadata = false; // set true if using HTTPS in production
+    options.RequireHttpsMetadata = false; // true for HTTPS-only environments
     options.SaveToken = true;
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -41,18 +41,17 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// ✅ CORS for both local + deployed frontends
+// ✅ CORS setup — must explicitly list all frontend origins
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend", policy =>
     {
         policy
-            .SetIsOriginAllowed(origin =>
-                origin.StartsWith("http://localhost:5173") ||
-                origin.StartsWith("https://pathlock-project-placement") ||
-                origin.StartsWith("https://pathlock-miniprojectmanager") ||
-                origin.StartsWith("https://pathlock-project-placement-kjwb.vercel.app") 
-
+            .WithOrigins(
+                "http://localhost:5173",                                     // local dev
+                "https://pathlock-project-placement.vercel.app",              // Assignment 1
+                "https://pathlock-miniprojectmanager.vercel.app",             // Assignment 2 (future)
+                "https://pathlock-project-placement-kjwb.vercel.app"          // current frontend deployment
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
@@ -60,33 +59,44 @@ builder.Services.AddCors(options =>
     });
 });
 
-
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// ✅ Ensure DB exists
+// ✅ Ensure database exists
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     db.Database.EnsureCreated();
 }
 
-// ✅ Middleware order (important)
+// ✅ Handle OPTIONS requests manually (fixes 502 preflight issues)
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.StatusCode = 200;
+        await context.Response.CompleteAsync();
+        return;
+    }
+    await next();
+});
+
+// ✅ Correct middleware order (important!)
 app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
+// ✅ Map API controllers
 app.MapControllers();
 
-// ✅ Use Render's dynamic port (important!)
+// ✅ Health check endpoint
+app.MapGet("/", () => Results.Ok("✅ Backend running and healthy!"));
+
+// ✅ Render dynamic port binding
 var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
 app.Urls.Add($"http://*:{port}");
-
-// ✅ Optional health check
-app.MapGet("/", () => "✅ Backend running and healthy!");
 
 // ✅ Start the app
 app.Run();
