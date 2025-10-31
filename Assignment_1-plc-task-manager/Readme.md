@@ -4,6 +4,15 @@ A full-stack Task Manager web application built as part of the **PLC Home Coding
 This project demonstrates the use of **.NET 8 Minimal APIs** for the backend and **React + TypeScript (Vite)** for the frontend.
 
 ---
+🚀 Live Deployments
+
+🔹 Frontend (Vercel)
+
+👉 https://pathlock-project-placement.vercel.app
+
+🔹 Backend (Render)
+
+👉 https://pathlock-project-taskmanager.onrender.com
 
 ## 🚀 Project Overview
 
@@ -24,7 +33,7 @@ The **Task Manager** allows users to:
 | **Frontend** | React + TypeScript (Vite) | Interactive UI built using hooks, axios, and modern CSS |
 | **Backend** | ASP.NET Core 8 (Minimal API) | Provides REST endpoints for CRUD operations |
 | **Styling** | CSS3 | Glassmorphism + responsive design |
-| **Data Storage** | In-memory (List\<TaskItem\>) | Lightweight, no database dependency |
+
 
 ---
 
