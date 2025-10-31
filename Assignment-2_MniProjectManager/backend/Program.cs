@@ -93,17 +93,28 @@ using (var scope = app.Services.CreateScope())
     db.Database.EnsureCreated();
 }
 
-// ✅ Handle OPTIONS requests manually (fixes 502 preflight issues)
+// 🚀 MODIFIED: Handle OPTIONS requests manually (fixes 502 preflight issues)
 app.Use(async (context, next) =>
 {
+    // Capture the requested Origin header
+    var origin = context.Request.Headers["Origin"].ToString();
+    
+    // Check if the request is an OPTIONS preflight
     if (context.Request.Method == "OPTIONS")
     {
+        // Explicitly set the headers needed for the OPTIONS response
+        // This bypasses the normal CORS middleware for preflight only.
+        context.Response.Headers.Add("Access-Control-Allow-Origin", origin);
+        context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+        context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
         context.Response.StatusCode = 200;
         await context.Response.CompleteAsync();
         return;
     }
     await next();
 });
+// -------------------------------------------------------------
 
 // ✅ Correct middleware order (important!)
 app.UseCors("AllowFrontend");
